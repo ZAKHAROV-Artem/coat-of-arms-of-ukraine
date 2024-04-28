@@ -69,28 +69,28 @@ export default function Intro() {
   return (
     <div
       ref={introContainer}
-      className={cn("absolute z-50 h-screen w-full bg-primary duration-500", {
+      className={cn("bg-bg fixed top-0 z-50 h-screen w-full duration-500", {
         "opacity-0": !intro,
       })}
     >
       <div className="absolute flex h-full flex-col justify-between overflow-hidden md:gap-y-20">
         <Image
           className="tridents max-h-[240px] grow object-cover opacity-0 md:max-h-[400px]"
-          src="/tridents-01.png"
+          src="/imgs/tridents/tridents-01.png"
           alt="Group of tridents 1"
           width={3029}
           height={470}
         />
         <Image
           className="tridents max-h-[240px] grow object-cover opacity-0 md:max-h-[400px]"
-          src="/tridents-02.png"
+          src="/imgs/tridents/tridents-02.png"
           alt="Group of tridents 2"
           width={3029}
           height={470}
         />
         <Image
           className="tridents max-h-[240px] grow object-cover opacity-0 md:max-h-[400px]"
-          src="/tridents-03.png"
+          src="/imgs/tridents/tridents-03.png"
           alt="Group of tridents 3"
           width={3029}
           height={470}
@@ -115,7 +115,7 @@ export default function Intro() {
             />
           </svg>
         </div>
-        <div className="space-y-3 text-center text-light-gray">
+        <div className="space-y-3 text-center">
           <div className="overflow-hidden">
             <h1 className="show-me px-3 py-2 text-4xl opacity-0 sm:text-5xl md:text-6xl">
               Український тризуб

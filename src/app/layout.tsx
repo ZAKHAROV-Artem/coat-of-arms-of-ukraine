@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Navbar } from "@/components/navbar";
 
 const eUkraine = localFont({
   src: "../../public/e-UkraineHead-Regular.otf",
@@ -18,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={eUkraine.className}>{children}</body>
+      <body className={eUkraine.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

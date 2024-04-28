@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   body {
-    @apply bg-primary;
+    @apply bg-bg text-light-gray;
+  }
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
