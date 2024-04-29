@@ -21,7 +21,7 @@ export default function Trident({ name, link, width, height }: Props) {
       </div>
       <div className="p-3 sm:p-5">
         <h2 className="break-words text-2xl">{name}</h2>
-        <button className="bg-wheat mt-5 rounded-md px-3 py-2 text-black">
+        <button className="mt-3 rounded-md bg-wheat p-1 text-black sm:mt-5 sm:px-3 sm:py-2">
           Налаштувати
         </button>
       </div>

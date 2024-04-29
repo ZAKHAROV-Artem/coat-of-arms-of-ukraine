@@ -10,13 +10,18 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.39.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
     "lucide-react": "^0.376.0",
     "next": "14.2.3",
+    "next-sanity": "^7.1.4",
     "react": "^18",
     "react-dom": "^18",
+    "sanity": "^3.39.1",
+    "styled-components": "^6.1.8",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.4"
