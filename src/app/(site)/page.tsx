@@ -1,5 +1,4 @@
-import { Intro } from "@/components/intro";
-import Trident from "../../components/trident/trident";
+import Trident from "@/components/trident/trident";
 import getTridents from "@/actions/get/getTridents";
 
 export const revalidate = 300;
@@ -8,7 +7,6 @@ export default async function Home() {
   const tridents = await getTridents();
   return (
     <>
-      <Intro />
       <div className="flex flex-wrap justify-center gap-2 p-2 sm:gap-3 sm:p-3 md:gap-5 md:p-5">
         {tridents.map((trident) => (
           <Trident
