@@ -4,7 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 
 const eUkraine = localFont({
-  src: "../../public/e-UkraineHead-Regular.otf",
+  src: "../../../public/e-UkraineHead-Regular.otf",
   display: "swap",
 });
 export const metadata: Metadata = {

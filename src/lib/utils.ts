@@ -21,3 +21,10 @@ export function validateGetImageRequest(req: NextRequest) {
   data.fill = "#" + data.fill;
   return { success: true, data };
 }
+
+export function sliceText(text: string, take: number) {
+  if (text.length > take) {
+    return text.slice(0, take) + "...";
+  }
+  return text;
+}
