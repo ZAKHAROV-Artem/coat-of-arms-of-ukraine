@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Intro } from "@/components/intro";
+import { cn } from "@/lib/utils";
 
 const eUkraine = localFont({
   src: "../../../public/e-UkraineHead-Regular.otf",
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={eUkraine.className}>
+      <body className={cn("flex min-h-screen flex-col", eUkraine.className)}>
         <Intro />
 
         <Navbar />
