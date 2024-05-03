@@ -14,7 +14,7 @@ export default function Trident({
         <div className="flex h-[150px] justify-center overflow-hidden p-3 sm:h-[290px] sm:w-[290px] sm:p-5">
           <Image
             className="h-full w-full object-contain"
-            src={`${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${api.current}?fill=fff&size=2`}
+            src={`${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${api.current}?fill=fff&size=1`}
             alt={name}
             width={width}
             height={height}
