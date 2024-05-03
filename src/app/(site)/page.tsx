@@ -1,7 +1,7 @@
 import Trident from "@/components/trident/trident";
 import getTridents from "@/actions/get/getTridents";
 
-export const revalidate = 300;
+export const revalidate = 3600;
 // export const revalidate = 0; for dev mode
 export default async function Home() {
   const tridents = await getTridents();
