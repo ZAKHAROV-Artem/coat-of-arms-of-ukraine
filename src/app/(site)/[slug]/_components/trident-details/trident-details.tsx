@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Trident } from "@/types/sanity";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 type Props = { trident: Trident };
@@ -11,14 +12,23 @@ export default function TridentDetails({
 }: Props) {
   const [color, setColor] = useState<string>("fff");
   const [size, setSize] = useState<number>(1);
+  const router = useRouter();
   return (
     <div className="container my-10">
-      <h1 className="text-center text-3xl sm:text-4xl md:text-5xl">{name}</h1>
+      <div className="relative mt-10 md:mt-0">
+        <button
+          className="absolute top-0 -translate-y-[130%] text-4xl md:top-1/2 md:-translate-y-1/2"
+          onClick={() => router.back()}
+        >
+          {"<-"}
+        </button>
+        <h1 className="text-center text-3xl sm:text-4xl md:text-5xl">{name}</h1>
+      </div>
 
       <div className="mt-20 grid grid-cols-1 gap-10 md:grid-cols-2">
         <div className="mx-auto w-full md:w-fit">
           <Image
-            className="max-h-[300px] w-full object-contain lg:max-h-[400px]"
+            className="max-h-[350px] w-full object-contain lg:max-h-[400px]"
             src={`${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${api.current}?fill=${color}&size=1`}
             alt={name}
             width={width}
@@ -28,7 +38,7 @@ export default function TridentDetails({
         <div className="flex h-full w-full flex-col justify-between gap-8 rounded-2xl border border-wheat bg-primary p-5 lg:p-10 ">
           <div>
             <h3>Колір тризуба: </h3>
-            <div className="mt-2 flex gap-5">
+            <div className="mt-2 flex flex-wrap gap-5">
               <div
                 className="h-10 w-10 rounded-full bg-white"
                 onClick={() => setColor("fff")}
@@ -57,7 +67,7 @@ export default function TridentDetails({
           </div>
           <div>
             <h3>Розмір тризуба: </h3>
-            <div className="mt-2 flex items-center gap-5">
+            <div className="mt-2 flex flex-wrap items-center gap-5">
               <button
                 className={cn(
                   "grid h-10 w-10 place-content-center rounded-full border border-wheat text-white duration-200 ",
