@@ -9,7 +9,7 @@
     box-sizing: border-box;
   }
   body {
-    @apply bg-bg text-light-gray;
+    @apply bg-bg text-sm text-light-gray md:text-base;
   }
   ::-webkit-scrollbar {
     display: none;
