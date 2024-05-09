@@ -22,12 +22,12 @@ export default function Intro() {
         .fromTo(
           ".show-me",
           { y: "100%", opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, stagger: 0.5 },
+          { y: 0, opacity: 1, duration: 0.5, stagger: 0.2 },
         )
         .fromTo(
           ".tridents",
           { y: "10%", opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, delay: -2, stagger: 0.5 },
+          { y: 0, opacity: 1, duration: 0.5, delay: -0.5, stagger: 0.1 },
         )
         .then(() => {
           setIntoAppeared(true);
@@ -44,7 +44,7 @@ export default function Intro() {
           .to(".show-me", {
             y: "100%",
             opacity: 0,
-            delay: 2,
+            delay: 1,
             duration: 1,
             stagger: -0.5,
           })
@@ -69,7 +69,7 @@ export default function Intro() {
   return (
     <div
       ref={introContainer}
-      className={cn("bg-bg fixed top-0 z-50 h-screen w-full duration-500", {
+      className={cn("fixed top-0 z-50 h-screen w-full bg-bg duration-500", {
         "opacity-0": !intro,
       })}
     >
