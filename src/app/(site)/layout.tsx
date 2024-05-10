@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Intro } from "@/components/intro";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/react";
 
 const eUkraine = localFont({
   src: "../../../public/e-UkraineHead-Regular.otf",
@@ -83,8 +84,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("flex min-h-screen flex-col", eUkraine.className)}>
+        <Analytics />
         <Intro />
-
         <Navbar />
         {children}
       </body>

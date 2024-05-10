@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.39.1",
+    "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
