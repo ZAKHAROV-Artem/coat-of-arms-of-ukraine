@@ -5,8 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import { FaLink, FaCircleInfo, FaRocket, FaHouse } from "react-icons/fa6";
-import Link from "next/link";
 import FloatingNavbarItem from "./floating-navbar-item";
+
 export default function FloatingNavbar() {
   const container = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline>();
@@ -18,13 +18,15 @@ export default function FloatingNavbar() {
         .fromTo(
           ".fm-item",
           {
-            y: 112,
+            bottom: 0,
             opacity: 0,
           },
           {
-            y: 0,
+            bottom: function (index, target, list) {
+              return 64 * (index + 1);
+            },
             opacity: 1,
-            duration: 0.2,
+            duration: 0.3,
             stagger: {
               from: "start",
               amount: 0.3,
