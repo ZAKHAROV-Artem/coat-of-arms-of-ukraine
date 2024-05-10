@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import ColorPicker from "./color-picker";
-import ColorItem from "./color-item";
 
 type Props = { trident: Trident };
 export default function TridentDetails({
