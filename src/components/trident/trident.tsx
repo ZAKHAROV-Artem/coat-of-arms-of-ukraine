@@ -9,7 +9,7 @@ export default function Trident({
   trident: { name, api, width, height },
 }: Props) {
   return (
-    <div className="flex max-w-[290px] grow flex-col justify-between rounded-2xl border border-stone-700 sm:grow-0">
+    <div className="flex grow flex-col justify-between rounded-2xl border border-stone-700 sm:max-w-[290px] sm:grow-0">
       <div className="mx-auto">
         <div className="flex h-[150px] justify-center overflow-hidden p-3 sm:h-[290px] sm:w-[290px] sm:p-5">
           <Image
