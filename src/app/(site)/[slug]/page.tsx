@@ -1,5 +1,6 @@
 import getTridentBySlug from "@/actions/get/getTridentBySlug";
 import { TridentDetails } from "./_components/trident-details";
+import { notFound } from "next/navigation";
 
 export const revalidate = 3600;
 type Props = {
@@ -7,5 +8,6 @@ type Props = {
 };
 export default async function TridentDetailsPage({ params: { slug } }: Props) {
   const trident = await getTridentBySlug(slug);
+  if (!trident) notFound();
   return <TridentDetails trident={trident} />;
 }
