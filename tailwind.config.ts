@@ -18,6 +18,9 @@ const config: Config = {
       },
     },
     extend: {
+      backgroundImage: {
+        gradient: "linear-gradient(to left, #ef32d9, #89fffd);",
+      },
       colors: {
         bg: "#1e1e1e",
         primary: "#222121",

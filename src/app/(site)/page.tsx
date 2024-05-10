@@ -1,4 +1,4 @@
-import Trident from "@/components/trident/trident";
+import { Trident } from "@/components/trident";
 import getTridents from "@/actions/get/getTridents";
 
 export const revalidate = 3600;

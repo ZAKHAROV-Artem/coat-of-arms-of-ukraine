@@ -2,9 +2,11 @@
 
 import { cn } from "@/lib/utils";
 import { Trident } from "@/types/sanity";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
+import ColorPicker from "./color-picker";
+import ColorItem from "./color-item";
 
 type Props = { trident: Trident };
 export default function TridentDetails({
@@ -40,30 +42,86 @@ export default function TridentDetails({
             <h3>Колір тризуба: </h3>
             <div className="mt-2 flex flex-wrap gap-5">
               <div
-                className="h-10 w-10 rounded-full bg-white"
-                onClick={() => setColor("fff")}
-              />
+                className={cn(
+                  "rounded-full border-2 border-transparent p-1 duration-150",
+                  {
+                    "border-wheat": color === "fff",
+                  },
+                )}
+              >
+                <div
+                  className="h-10 w-10 rounded-full bg-white"
+                  onClick={() => setColor("fff")}
+                />
+              </div>
               <div
-                className="h-10 w-10 rounded-full bg-black"
-                onClick={() => setColor("000")}
-              />
+                className={cn(
+                  "rounded-full border-2 border-transparent p-1 duration-150",
+                  {
+                    "border-wheat": color === "000",
+                  },
+                )}
+              >
+                <div
+                  className="h-10 w-10 rounded-full bg-black"
+                  onClick={() => setColor("000")}
+                />
+              </div>
               <div
-                className="h-10 w-10 rounded-full bg-[#ff0000]"
-                onClick={() => setColor("ff0000")}
-              />
+                className={cn(
+                  "rounded-full border-2 border-transparent p-1 duration-150",
+                  {
+                    "border-wheat": color === "ff0000",
+                  },
+                )}
+              >
+                <div
+                  className="h-10 w-10 rounded-full bg-[#ff0000]"
+                  onClick={() => setColor("ff0000")}
+                />
+              </div>
               <div
-                className="h-10 w-10 rounded-full bg-[#03AED2]"
-                onClick={() => setColor("03AED2")}
-              />
+                className={cn(
+                  "rounded-full border-2 border-transparent p-1 duration-150",
+                  {
+                    "border-wheat": color === "03AED2",
+                  },
+                )}
+              >
+                <div
+                  className="h-10 w-10 rounded-full bg-[#03AED2]"
+                  onClick={() => setColor("03AED2")}
+                />
+              </div>
               <div
-                className="h-10 w-10 rounded-full bg-[#FDDE55]"
-                onClick={() => setColor("FDDE55")}
-              />
+                className={cn(
+                  "rounded-full border-2 border-transparent p-1 duration-150",
+                  {
+                    "border-wheat": color === "FDDE55",
+                  },
+                )}
+              >
+                <div
+                  className="h-10 w-10 rounded-full bg-[#FDDE55]"
+                  onClick={() => setColor("FDDE55")}
+                />
+              </div>
               <div
-                className="h-10 w-10 rounded-full bg-[#2C7865]"
-                onClick={() => setColor("2C7865")}
-              />
-            </div>{" "}
+                className={cn(
+                  "rounded-full border-2 border-transparent p-1 duration-150",
+                  {
+                    "border-wheat": color === "2C7865",
+                  },
+                )}
+              >
+                <div
+                  className="h-10 w-10 rounded-full  bg-[#2C7865] "
+                  onClick={() => setColor("2C7865")}
+                />
+              </div>
+
+              <ColorPicker setColor={setColor} />
+            </div>
           </div>
           <div>
             <h3>Розмір тризуба: </h3>
