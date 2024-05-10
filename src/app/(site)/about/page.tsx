@@ -10,6 +10,7 @@ export default function About() {
         height={361}
         className="mx-auto h-60 object-contain sm:float-right md:m-5"
         alt="Trident"
+        priority
       />
       <p>
         {`Держа́вний герб України, або малий Державний Герб України — офіційний
