@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.39.1",
     "@vercel/analytics": "^1.2.2",
@@ -21,6 +22,7 @@
     "next-sanity": "^7.1.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.2.1",
     "sanity": "^3.39.1",
     "server-only": "^0.0.1",
     "styled-components": "^6.1.8",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
+import { FloatingNavbar, Navbar } from "@/components/navbar";
 import { Intro } from "@/components/intro";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
@@ -88,6 +88,7 @@ export default function RootLayout({
         <Intro />
         <Navbar />
         {children}
+        <FloatingNavbar />
       </body>
     </html>
   );
