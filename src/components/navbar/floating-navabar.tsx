@@ -4,7 +4,7 @@ import { IoClose } from "react-icons/io5";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
-import { FaLink, FaCircleInfo, FaRocket } from "react-icons/fa6";
+import { FaLink, FaCircleInfo, FaRocket, FaHouse } from "react-icons/fa6";
 import Link from "next/link";
 import FloatingNavbarItem from "./floating-navbar-item";
 export default function FloatingNavbar() {
@@ -52,25 +52,27 @@ export default function FloatingNavbar() {
           <IoIosMenu className="h-7 w-7 text-black" />
         )}
       </button>
-
+      <FloatingNavbarItem href="/" onClick={toggleTimeline} bottom="bottom-16">
+        <FaHouse className="h-6 w-6 text-wheat" />
+      </FloatingNavbarItem>
       <FloatingNavbarItem
         href="/service"
         onClick={toggleTimeline}
-        bottom="bottom-16"
+        bottom="bottom-32"
       >
         <FaCircleInfo className="h-6 w-6 text-wheat" />
       </FloatingNavbarItem>
       <FloatingNavbarItem
         href="/links"
         onClick={toggleTimeline}
-        bottom="bottom-32"
+        bottom="bottom-48"
       >
         <FaLink className="h-6 w-6 text-wheat" />
       </FloatingNavbarItem>
       <FloatingNavbarItem
         href="/about"
         onClick={toggleTimeline}
-        bottom="bottom-48"
+        bottom="bottom-64"
       >
         <svg
           width="17"
@@ -88,7 +90,7 @@ export default function FloatingNavbar() {
       <FloatingNavbarItem
         href="/about"
         onClick={toggleTimeline}
-        bottom="bottom-64"
+        bottom="bottom-80"
       >
         <FaRocket className="h-6 w-6 text-wheat" />
       </FloatingNavbarItem>
