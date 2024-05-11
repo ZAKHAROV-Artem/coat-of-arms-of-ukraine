@@ -1,6 +1,6 @@
 "use client";
 
-import { useTrident } from "@/hooks/state/use-trident";
+import { useTrident } from "@/state/use-trident";
 import { toast } from "sonner";
 import { useShallow } from "zustand/react/shallow";
 
