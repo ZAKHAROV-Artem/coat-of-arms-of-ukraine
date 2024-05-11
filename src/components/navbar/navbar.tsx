@@ -3,7 +3,7 @@ import Logo from "./logo";
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 flex h-12 items-center justify-center rounded-b-full border-b border-wheat bg-primary sm:h-20 lg:justify-between lg:px-16">
+    <nav className="sticky top-0 z-40 flex h-12 items-center justify-center rounded-b-full border-b border-wheat bg-primary sm:h-20 lg:justify-between lg:px-16">
       <Logo />
       <div className="hidden gap-x-4 lg:flex">
         <Link
