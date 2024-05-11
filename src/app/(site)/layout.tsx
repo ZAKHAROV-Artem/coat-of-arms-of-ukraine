@@ -5,7 +5,7 @@ import { FloatingNavbar, Navbar } from "@/components/navbar";
 import { Intro } from "@/components/intro";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
-
+import { Toaster } from "sonner";
 const eUkraine = localFont({
   src: "../../../public/e-UkraineHead-Regular.otf",
   display: "swap",
@@ -89,6 +89,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <FloatingNavbar />
+        <Toaster />
       </body>
     </html>
   );

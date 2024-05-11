@@ -3,16 +3,20 @@
 import { cn } from "@/lib/utils";
 import { Trident } from "@/types/sanity";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import ColorPicker from "./color-picker";
-
+import { toast } from "sonner";
 type Props = { trident: Trident };
 export default function TridentDetails({
   trident: { api, width, height, name },
 }: Props) {
+  const [loading, setLoading] = useState<boolean>(true);
   const [color, setColor] = useState<string>("fff");
   const [size, setSize] = useState<number>(1);
+  useEffect(() => {
+    setLoading(true);
+  }, [color]);
   const router = useRouter();
   return (
     <div className="container my-10">
@@ -27,14 +31,29 @@ export default function TridentDetails({
       </div>
 
       <div className="mt-20 grid grid-cols-1 gap-10 md:grid-cols-2">
-        <div className="mx-auto w-full md:w-fit">
-          <Image
-            className="max-h-[350px] w-full object-contain lg:max-h-[400px]"
-            src={`${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${api.current}?fill=${color}&size=1`}
-            alt={name}
-            width={width}
-            height={height}
-          />
+        <div className="relative p-1">
+          <div
+            className={cn(
+              "absolute grid h-full w-full place-content-center bg-bg/50 backdrop-blur-sm duration-100",
+              {
+                "opacity-0": !loading,
+              },
+            )}
+          >
+            Loading...
+          </div>
+          <div className="mx-auto md:w-fit">
+            <Image
+              className="max-h-[350px] w-full object-contain lg:max-h-[400px]"
+              src={`${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${api.current}?fill=${color}&size=1`}
+              alt={name}
+              onLoadingComplete={() => {
+                setLoading(false);
+              }}
+              width={width}
+              height={height}
+            />
+          </div>
         </div>
         <div className="flex h-full w-full flex-col justify-between gap-8 rounded-2xl border border-wheat bg-primary p-5 lg:p-10 ">
           <div>
@@ -161,8 +180,29 @@ export default function TridentDetails({
             <a
               href={`${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${api.current}?fill=${color}&size=${size}`}
               download={name}
+              onLoad={() => {
+                console.log("File downloaded");
+              }}
             >
-              <button className="rounded-xl bg-wheat px-3 py-2 text-black">
+              <button
+                onClick={() =>
+                  toast.custom(
+                    (t) => (
+                      <div className="mx-auto w-60 rounded-xl border border-primary bg-wheat p-3 text-center text-black shadow-lg">
+                        Завантаження почалося
+                      </div>
+                    ),
+                    {
+                      position: "top-center",
+                      classNames: {
+                        toast: "w-full",
+                      },
+                      duration: 2500,
+                    },
+                  )
+                }
+                className="rounded-xl bg-wheat px-3 py-2 text-black"
+              >
                 Завантажити тризуб
               </button>
             </a>
