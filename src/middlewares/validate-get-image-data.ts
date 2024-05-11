@@ -1,4 +1,4 @@
-import { GetImageRequestSchema } from "@/types/request";
+import { ImageRequestValidationSchema } from "@/validation/request";
 import {
   NextMiddleware,
   NextResponse,
@@ -13,7 +13,7 @@ export function validateGetImageData(middleware: NextMiddleware) {
     }
 
     const { searchParams } = new URL(req.url);
-    const validationResult = GetImageRequestSchema.safeParse({
+    const validationResult = ImageRequestValidationSchema.safeParse({
       fill: searchParams.get("fill"),
       size: Number(searchParams.get("size")),
     });
