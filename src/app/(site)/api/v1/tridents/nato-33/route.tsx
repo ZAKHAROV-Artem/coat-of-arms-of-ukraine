@@ -1,19 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { ImageResponse } from "next/og";
-import { validateGetImageRequest } from "@/lib/utils";
+import { extractAndModifyGetImageData } from "@/lib/utils";
 
 export async function GET(req: NextRequest) {
-  const validationResult = validateGetImageRequest(req);
-  if (!validationResult.success) {
-    return NextResponse.json(validationResult.errors);
-  }
-  const { fill, size } = validationResult.data;
+  const { fill, size } = extractAndModifyGetImageData(req.url);
+
   return new ImageResponse(
     (
-      <svg
-        width={247 * size}
-        height={400 * size}
-      >
+      <svg width={247 * size} height={400 * size}>
         <path
           d="M0 272.878H122.463L145.757 295.507L244.925 274.21L151.747 304.825L121.797 400L122.463 272.878L99.8336 295.507L120.466 396.672L91.1814 304.825L0 272.878Z"
           fill={fill}
@@ -36,7 +30,6 @@ export async function GET(req: NextRequest) {
         />
       </svg>
     ),
-
     {
       width: 247 * size,
       height: 400 * size,

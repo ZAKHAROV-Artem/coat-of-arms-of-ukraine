@@ -7,19 +7,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function validateGetImageRequest(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const validationResult = GetImageRequestSchema.safeParse({
-    fill: searchParams.get("fill"),
-    size: Number(searchParams.get("size")),
-  });
-  if (!validationResult.success) {
-    return { errors: validationResult.error.errors };
-  }
-
-  let data = validationResult.data;
-  data.fill = "#" + data.fill;
-  return { success: true, data };
+export function extractAndModifyGetImageData(url: string) {
+  const { searchParams } = new URL(url);
+  const fill = `#${searchParams.get("fill") || "fff"}`;
+  const size = Number(searchParams.get("size") || 1);
+  return { fill, size };
 }
 
 export function sliceText(text: string, take: number) {

@@ -1,13 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { ImageResponse } from "next/og";
-import { validateGetImageRequest } from "@/lib/utils";
+import { extractAndModifyGetImageData } from "@/lib/utils";
 
 export async function GET(req: NextRequest) {
-  const validationResult = validateGetImageRequest(req);
-  if (!validationResult.success) {
-    return NextResponse.json(validationResult.errors);
-  }
-  const { fill, size } = validationResult.data;
+  const { fill, size } = extractAndModifyGetImageData(req.url);
+
   return new ImageResponse(
     (
       <svg
