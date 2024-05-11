@@ -54,27 +54,27 @@ export default function FloatingNavbar() {
           <IoIosMenu className="h-7 w-7 text-black" />
         )}
       </button>
-      <FloatingNavbarItem href="/" onClick={toggleTimeline} bottom="bottom-16">
+      <FloatingNavbarItem href="/" onClick={toggleTimeline} bottom="bottom-0">
         <FaHouse className="h-6 w-6 text-wheat" />
       </FloatingNavbarItem>
       <FloatingNavbarItem
         href="/service"
         onClick={toggleTimeline}
-        bottom="bottom-32"
+        bottom="bottom-0"
       >
         <FaCircleInfo className="h-6 w-6 text-wheat" />
       </FloatingNavbarItem>
       <FloatingNavbarItem
         href="/links"
         onClick={toggleTimeline}
-        bottom="bottom-48"
+        bottom="bottom-0"
       >
         <FaLink className="h-6 w-6 text-wheat" />
       </FloatingNavbarItem>
       <FloatingNavbarItem
         href="/about"
         onClick={toggleTimeline}
-        bottom="bottom-64"
+        bottom="bottom-0"
       >
         <svg
           width="17"
@@ -92,7 +92,7 @@ export default function FloatingNavbar() {
       <FloatingNavbarItem
         href="/about"
         onClick={toggleTimeline}
-        bottom="bottom-80"
+        bottom="bottom-0"
       >
         <FaRocket className="h-6 w-6 text-wheat" />
       </FloatingNavbarItem>
