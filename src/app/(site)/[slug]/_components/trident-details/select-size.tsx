@@ -1,13 +1,17 @@
 "use client";
 
 import { useTrident } from "@/state/use-trident";
-import { cn } from "@/lib/utils";
 import { useShallow } from "zustand/react/shallow";
+import SelectedSizeItem from "./selected-size-item";
+
+/* Maybe, I had to create folder data under src and 
+  file something like index.ts where put this array */
+const sizes = [1, 2, 3];
 
 export default function SelectSize() {
-  const { size, width, height, setSize } = useTrident(
+  const { selectedSize, width, height, setSize } = useTrident(
     useShallow((state) => ({
-      size: state.size,
+      selectedSize: state.size,
       width: state.trident!.width,
       height: state.trident!.height,
       setSize: state.setSize,
@@ -17,35 +21,17 @@ export default function SelectSize() {
     <div>
       <h3>Розмір тризуба: </h3>
       <div className="mt-2 flex flex-wrap items-center gap-5">
-        <button
-          className={cn(
-            "grid h-10 w-10 place-content-center rounded-full border border-wheat text-white duration-200 ",
-            { "bg-wheat text-black": size === 1 },
-          )}
-          onClick={() => setSize(1)}
-        >
-          1x
-        </button>
-        <button
-          className={cn(
-            "grid h-10 w-10 place-content-center rounded-full border border-wheat text-white duration-200 ",
-            { "bg-wheat text-black": size === 2 },
-          )}
-          onClick={() => setSize(2)}
-        >
-          2x
-        </button>
-        <button
-          className={cn(
-            "grid h-10 w-10 place-content-center rounded-full border border-wheat text-white duration-200 ",
-            { "bg-wheat text-black": size === 3 },
-          )}
-          onClick={() => setSize(3)}
-        >
-          3x
-        </button>
+        {sizes.map((size) => (
+          <SelectedSizeItem
+            key={size}
+            selectedSize={selectedSize}
+            size={size}
+            setSize={setSize}
+          />
+        ))}
+
         <div className="text-xl">
-          {width * size} x {height * size}
+          {width * selectedSize} x {height * selectedSize}
         </div>
       </div>
     </div>
