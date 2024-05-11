@@ -13,6 +13,19 @@ const nextConfig = {
     ],
     minimumCacheTTL: 180,
   },
+  async headers() {
+    return [
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "immutable",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
