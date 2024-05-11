@@ -16,7 +16,6 @@ type Actions = {
   setColor: (color: string) => void;
   setSize: (size: number) => void;
   setLoading: (loading: boolean) => void;
-  changeDownloadUrl: (trident?: Trident) => void;
 };
 
 export const useTrident = create<State & Actions>()(
@@ -29,26 +28,22 @@ export const useTrident = create<State & Actions>()(
     setTrident: (trident) =>
       set((state) => {
         state.trident = trident;
-        state.changeDownloadUrl(trident);
+        state.downloadUrl = `${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${trident?.api.current}?fill=${state.color}&size=${state.size}`;
       }),
     setColor: (color) =>
       set((state) => {
         state.loading = true;
         state.color = color;
-        state.changeDownloadUrl();
+        state.downloadUrl = `${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${state.trident!.api.current}?fill=${state.color}&size=${state.size}`;
       }),
     setSize: (size) =>
       set((state) => {
         state.size = size;
-        state.changeDownloadUrl();
+        state.downloadUrl = `${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${state.trident!.api.current}?fill=${state.color}&size=${state.size}`;
       }),
     setLoading: (loading) =>
       set((state) => {
         state.loading = loading;
-      }),
-    changeDownloadUrl: (trident) =>
-      set((state) => {
-        state.downloadUrl = `${process.env.NEXT_PUBLIC_URL}/api/v1/tridents/${trident?.api.current || state.trident!.api.current}?fill=${state.color}&size=${state.size}`;
       }),
   })),
 );
