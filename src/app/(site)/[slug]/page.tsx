@@ -1,4 +1,4 @@
-import getTridentBySlug from "@/actions/get/getTridentBySlug";
+import getTridentBySlug from "@/actions/get/get-trident-by-slug";
 import { TridentDetails } from "./_components/trident-details";
 import { notFound } from "next/navigation";
 

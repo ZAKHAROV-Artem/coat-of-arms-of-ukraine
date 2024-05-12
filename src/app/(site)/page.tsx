@@ -1,5 +1,5 @@
 import { Trident } from "@/components/trident";
-import getTridents from "@/actions/get/getTridents";
+import getTridents from "@/actions/get/get-tridents";
 
 export const revalidate = 3600;
 // export const revalidate = 0; for dev mode
