@@ -31,7 +31,7 @@ type Props = React.PropsWithChildren & {
 }
 
 // In this case this component is more generic. It is now basically a presentation. You can pass any callback here and any text.
-export default const SelectedSizeItem = ({ isActive, children, setSize }: Props) => (
+export default const SelectedSizeItem = ({ isSelected, children, setSize }: Props) => (
   <button
     className={cn("grid h-10 w-10 place-content-center rounded-full border border-wheat text-white duration-200", isSelected && "bg-wheat text-black")}
     onClick={setSize}
